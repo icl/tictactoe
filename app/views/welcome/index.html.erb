@@ -1,6 +1,8 @@
     <div class="page-header">
       <h1>Welcome <small>ICL TTT</small></h1>
     </div>
+
+    <% if current_user %>
     <div class="row">
       <div class="span10">
         <h2><%= link_to "New Subject", new_subject_path %></h2>
@@ -9,6 +11,7 @@
         Press "New Subject" to begin a new experiment
       </div>
     </div>
+  <% end %>
   </div>
 
 

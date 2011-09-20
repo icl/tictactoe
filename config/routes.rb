@@ -4,6 +4,7 @@ Ttt::Application.routes.draw do
   root :to => "welcome#index"
 
   resources :subjects
+  resource :user_session
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
