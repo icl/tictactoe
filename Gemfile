@@ -32,5 +32,6 @@ group :test do
   gem 'turn', :require => false
   gem 'capybara'
   gem 'rspec'
+  gem 'rspec-rails'
   gem 'cucumber'
 end
