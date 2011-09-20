@@ -19,7 +19,9 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe SubjectsController do
-
+  before :each do
+    session[:user] =true
+  end
   # This should return the minimal set of attributes required to create a valid
   # Subject. As you add validations to Subject, be sure to
   # update the return value of this method accordingly.
