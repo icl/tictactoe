@@ -24,7 +24,7 @@ describe SubjectsController do
   # Subject. As you add validations to Subject, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    {}
+    { :initials => 'BB'}
   end
 
   describe "GET index" do
