@@ -143,6 +143,9 @@ GEM
       ffi (>= 1.0.7)
       json_pure
       rubyzip
+    simple_form (1.5.1)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
     sprockets (2.0.0)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -177,6 +180,7 @@ DEPENDENCIES
   rspec
   rspec-rails
   sass-rails (~> 3.1.0)
+  simple_form
   sqlite3
   turn
   twitter-bootstrap-rails!

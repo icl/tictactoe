@@ -18,6 +18,7 @@ end
 
 gem 'jquery-rails'
 gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git' 
+gem 'simple_form'
 # Use unicorn as the web server
 # gem 'unicorn'
 

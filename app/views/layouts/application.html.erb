@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ttt</title>
+  <title>TTT</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -13,9 +13,8 @@
     <div class="container">
       <a class="brand" href="/">Tic Tac Toe</a>
       <ul class="nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#">Home</a></li>
+
       </ul>
       <form action="" class="pull-right">
         <input class="input-small" type="text" placeholder="Username">
@@ -25,8 +24,20 @@
     </div>
   </div>
 </div>
+<div class="container">
+  <div class="content">
 
-<%= yield %>
+    <%= yield %>
+
+
+
+  </div>
+  <footer>
+  <p>&copy; David Kirsh 2011</p>
+</footer>
+
+</div> <!-- /container -->
+
 
 </body>
 </html>
