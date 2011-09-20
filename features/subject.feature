@@ -4,7 +4,8 @@ Feature: Subject Records
   So I can cross reference results
 
   Background:
-    When I am on the new subject page
+    Given I log in
+    And I am on the new subject page
 
   Scenario: Create Subject
     When I fill in "Initials" with "BB"
