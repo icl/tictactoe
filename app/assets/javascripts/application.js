@@ -15,4 +15,6 @@
 //= require bootstrap-tabs-1.3.0
 //= require bootstrap-twipsy-1.3.0
 
-//= require_tree .
+//= require sproutcore
+
+
