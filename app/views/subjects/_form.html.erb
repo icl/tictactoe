@@ -10,12 +10,9 @@
       </ul>
     </div>
   <% end %>
-  <fieldset>
-    <div class="clearfix">
-      <%= f.label :initials %>
-      <%= f.text_field :initials %>
-    </div>
-  </fieldset>
+
+  <%= f.bootstrap_text_field :initials %>
+
   <div class="actions">
     <%= f.submit :class => "btn primary" %>
   </div>
