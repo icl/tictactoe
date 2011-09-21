@@ -5,12 +5,19 @@
     <h1>Game <small><%= @game.experimental_condition_name %> </small></h1>
   </div>
   <div class="row">
-    <div class="span10">
-      <h2>Main content</h2>
-    </div>
-    <div class="span4">
-      <h3>Secondary content</h3>
-    </div>
+    <script type="text/x-handlebars">
+      {{#view TTT.BoardView}}
+        <div class="span10">
+          <h2>{{content}}</h2>
+        </div>
+      {{/view}}
+    </script>
+
+    <script type="text/x-handlebars">
+      {{#collection contentBinding="TTT.MovesController" tagname="ol"}}
+      {{view SC.TextField valueBinding="content.player" }}
+      {{/collection}}
+    </script>
   </div>
 </div>
 
