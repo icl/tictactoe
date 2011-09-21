@@ -1,0 +1,25 @@
+<%= form_for @game do |f| %>
+  <% if @game.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@game.errors.count, "error") %> prohibited this game from being created:</h2>
+
+      <ul>
+      <% @game.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset>
+    <div class="clearfix">
+      <%= f.label :dimension %>
+      <%= f.text_field :dimension %>
+    </div>
+    <div class="clearfix">
+      <%= f.label :experimental_condition, "Condition" %>
+      <%= f.collection_select :experimental_condition_id, ExperimentalCondition.all, :id, :name %>
+  </fieldset>
+  <div class="actions">
+    <%= f.submit :class => "btn primary", :label => "Start Game" %>
+  </div>
+<% end %>

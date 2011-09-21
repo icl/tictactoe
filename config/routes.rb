@@ -5,6 +5,8 @@ Ttt::Application.routes.draw do
 
   resources :subjects
   resource :user_session
+  resources :games
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

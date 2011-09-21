@@ -11,6 +11,7 @@ Feature: Welcome Page
     When I log in
     And I go to the root page
     Then I should not see "Sign in"
+    And I should be on the root page
 
   Scenario: Sign Out
     When I log in

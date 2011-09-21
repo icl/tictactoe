@@ -4,8 +4,10 @@ Feature: Tic Tac Toe Game
   So I can record their responses
 
   Background:
-    Given an subject exists
+    Given I log in
+    Given a subject exists
     And I visit the first subject's page
 
   Scenario: New Game
     When I follow "New Game"
+    Then I should be on the new game page

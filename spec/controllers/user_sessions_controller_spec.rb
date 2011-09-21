@@ -2,16 +2,16 @@ require 'spec_helper'
 
 describe UserSessionsController do
 
-  describe "GET 'create'" do
+  describe "POST 'create'" do
     it "should be successful" do
-      get 'create'
-      response.should be_success
+      post :create, :login => {:username => 'blah', :password => 'rah'}
+      response.should redirect_to(root_path)
     end
   end
 
-  describe "GET 'destroy'" do
+  describe "DELETE 'destroy'" do
     it "should be successful" do
-      get 'destroy'
+      delete :destroy
       response.should be_success
     end
   end
