@@ -5,11 +5,11 @@ Feature: TTT Game
   So I can study people's abilities
 
   Background:
+    Given a standard set of experimental conditions exist
     Given I log in
     And a subject exists
     And I visit the first subject's page
     And I follow "New Game"
-    Given a normal exists
 
   Scenario: Start a new game
     When I fill in "3" for "Dimension"
