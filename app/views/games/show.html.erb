@@ -4,6 +4,12 @@
   <div class="page-header">
     <h1>Game <small><%= @game.experimental_condition_name %> </small></h1>
   </div>
+  <script type="text/x-handlebars" data-template-name="TTT.move_list_item">
+    rara
+    {{content.player}} {{content.position}}
+</script>
+
+
   <div class="row">
     <script type="text/x-handlebars">
       {{#view TTT.BoardView}}
@@ -14,11 +20,10 @@
     </script>
 
     <script type="text/x-handlebars">
-      {{#collection contentBinding="TTT.MovesController" tagname="ol"}}
-      {{view SC.TextField valueBinding="content.player" }}
-      {{/collection}}
+      {{collection contentBinding="TTT.MovesController" itemViewClass="TTT.MoveListItem" tagname="ol"}}
     </script>
   </div>
 </div>
+
 
 

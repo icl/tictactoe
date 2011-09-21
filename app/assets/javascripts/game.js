@@ -14,6 +14,10 @@ TTT.MovesController = SC.ArrayProxy.create({
   }
 });
 
+TTT.MoveListItem = SC.View.extend({
+ templateName: 'TTT.move_list_item'
+})
+
 TTT.BoardView = SC.View.extend({
  content: "Main content"
 });
