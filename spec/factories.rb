@@ -5,7 +5,7 @@ FactoryGirl.define do
   end
 
   factory :experimental_condition do
-    sequence(:name) { |n| "COND%04" % n}
+    sequence(:name) { |n| "COND%04d" % n}
 
     factory :normal do
       name "Normal"
