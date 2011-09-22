@@ -17,14 +17,33 @@ TTT.MovesController = SC.ArrayProxy.create({
   }
 });
 
-[0,1,2,3].forEach(function(target) {
-TTT.MovesController.createMove(target, 'human' )
+TTT.Tile = SC.Object.extend({
+  position: 0
+});
+
+TTT.TilesController = SC.ArrayProxy.create({
+  content: [],
+  createTile: function(position) {
+    var tile = TTT.Tile.create({ position: position });
+    this.pushObject(tile);
+  }
+});
+
+[1,2,3,4,5,6,7,8,9].forEach(function(target) {
+  TTT.MovesController.createMove(target, 'human' );
+  TTT.TilesController.createTile(target);
 });
 
 TTT.MoveListItem = SC.View.extend({
  templateName: 'TTT.move_list_item',
  tagName: "tr"
 })
+
+TTT.TileView = SC.View.extend({
+  classNameBindings: ['classnames'],
+  classnames: "btn primary btile",
+  templateName: "TTT.TileView"
+});
 
 TTT.UndoLastMoveView = SC.View.extend({
   click: function(event) {
