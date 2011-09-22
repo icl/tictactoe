@@ -17,9 +17,16 @@
 
     <script type="text/x-handlebars">
       <div class="span4">
-        {{collection contentBinding="TTT.MovesController" itemViewClass="TTT.MoveListItem" tagName="table" class="move_history" }}
-      </div>
-              {{view SC.TextField }}
+        <table>
+        <thead>
+          <th>Player</th>
+          <th>Position</th>
+          <th></th>
+        </thead>
+        {{collection contentBinding="TTT.MovesController" itemViewClass="TTT.MoveListItem" tagName="tbody" class="move_history" }}
+      </table>
+      {{view SC.TextField }}
+    </div>
 
     </script>
   </div>
