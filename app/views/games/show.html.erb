@@ -1,13 +1,9 @@
 <% javascript 'game' %>
 
-<div class="content">
   <div class="page-header">
     <h1>Game <small><%= @game.experimental_condition_name %> </small></h1>
   </div>
-  <script type="text/x-handlebars" data-template-name="TTT.move_list_item">
-    rara
-    {{content.player}} {{content.position}}
-</script>
+
 
 
   <div class="row">
@@ -20,10 +16,17 @@
     </script>
 
     <script type="text/x-handlebars">
-      {{collection contentBinding="TTT.MovesController" itemViewClass="TTT.MoveListItem" tagname="ol"}}
+      <div class="span4">
+        {{collection contentBinding="TTT.MovesController" itemViewClass="TTT.MoveListItem" tagName="table" class="move_history" }}
+      </div>
+              {{view SC.TextField }}
+
     </script>
   </div>
-</div>
 
 
-
+<script type="text/x-handlebars" data-template-name="TTT.move_list_item">
+  <td>{{content.player}}</td> 
+  <td>{{content.position}}</td>
+  <td><a class="btn danger" data-method="delete" rel="nofollow">X</a></td>
+</script>
