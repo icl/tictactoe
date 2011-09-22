@@ -1,39 +1,52 @@
 <% javascript 'game' %>
 
-  <div class="page-header">
-    <h1>Game <small><%= @game.experimental_condition_name %> </small></h1>
+<div class="page-header">
+  <h1>Game <small><%= @game.experimental_condition_name %> </small></h1>
+</div>
+
+
+
+<div class="row">
+  <script type="text/x-handlebars">
+    {{view TTT.BoardView}}
+  </script>
+
+  <script type="text/x-handlebars">
+    <div class="span4">
+      <table class="zebra-striped">
+      <thead>
+        <th>Player</th>
+        <th>Position</th>
+      </thead>
+      {{collection contentBinding="TTT.MovesController" itemViewClass="TTT.MoveListItem" tagName="tbody"  }}
+    </table>
+    {{#view TTT.UndoLastMoveView }}
+    <a href="#" class="btn danger" >Undo Last Move</a>
+    {{/view}}
   </div>
 
+  </script>
+</div>
 
-
+<script type="text/x-handlebars" data-template-name="TTT.BoardView">
+  <div class="span12 board_background">
   <div class="row">
-    <script type="text/x-handlebars">
-      {{#view TTT.BoardView}}
-        <div class="span10">
-          <h2>{{content}}</h2>
-        </div>
-      {{/view}}
-    </script>
-
-    <script type="text/x-handlebars">
-      <div class="span4">
-        <table>
-        <thead>
-          <th>Player</th>
-          <th>Position</th>
-          <th></th>
-        </thead>
-        {{collection contentBinding="TTT.MovesController" itemViewClass="TTT.MoveListItem" tagName="tbody" class="move_history" }}
-      </table>
-      {{view SC.TextField }}
+      <div class="span4 tile"> 1</div>
+      <div class="span4 tile"> 2</div>
+      <div class="span4 tile"> 3</div>
+      <div class="span4 tile"> 4</div>
+      <div class="span4 tile"> 5</div>
+      <div class="span4 tile"> 6</div>
+      <div class="span4 tile"> 7</div>
+      <div class="span4 tile"> 8</div>
+      <div class="span4 tile"> 9</div>
     </div>
-
-    </script>
   </div>
-
+  {{#collection contenBinding="TTT.TilesController"}}
+  {{/collection}}
+</script>
 
 <script type="text/x-handlebars" data-template-name="TTT.move_list_item">
   <td>{{content.player}}</td> 
   <td>{{content.position}}</td>
-  <td><a class="btn danger" data-method="delete" rel="nofollow">X</a></td>
 </script>

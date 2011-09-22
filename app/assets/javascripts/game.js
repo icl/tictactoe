@@ -11,7 +11,14 @@ TTT.MovesController = SC.ArrayProxy.create({
   createMove: function(position, player) {
     var move = TTT.Move.create({ position: position, player: player });
     this.pushObject(move);
+  },
+  undoLastMove: function(){
+    this.popObject()
   }
+});
+
+[0,1,2,3].forEach(function(target) {
+TTT.MovesController.createMove(target, 'human' )
 });
 
 TTT.MoveListItem = SC.View.extend({
@@ -19,8 +26,15 @@ TTT.MoveListItem = SC.View.extend({
  tagName: "tr"
 })
 
+TTT.UndoLastMoveView = SC.View.extend({
+  click: function(event) {
+    TTT.MovesController.undoLastMove();
+    return false;
+  }
+});
+
 TTT.BoardView = SC.View.extend({
- content: "Main content"
+ templateName: "TTT.BoardView"
 });
 
 TTT.MoveHistory = SC.View.extend({

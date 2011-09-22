@@ -1,6 +1,14 @@
-.move_history {
-
-  overflow-y: scroll;
-  max-height: 500px;
-  
+.board_background {
 }
+.tile {
+background:white;
+min-height: 220px;
+margin-bottom:20px;
+  -webkit-border-radius: 0 0 6px 6px;
+     -moz-border-radius: 0 0 6px 6px;
+          border-radius: 0 0 6px 6px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+          box-shadow: 0 1px 2px rgba(0,0,0,.15);
+}
+
