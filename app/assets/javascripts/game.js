@@ -40,7 +40,8 @@ TTT.MoveListItem = SC.View.extend({
 })
 
 TTT.TileView = SC.View.extend({
-  classNameBindings: ['classnames'],
+  classNameBindings: ['classnames', 'isDisabled:disabled'],
+  isDisabled: function(){ content.get('used') },
   classnames: "btn primary btile",
   templateName: "TTT.TileView"
 });

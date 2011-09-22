@@ -30,7 +30,9 @@
 
 <script type="text/x-handlebars" data-template-name="TTT.BoardView">
   <div class="span12 board_background">
-    {{collection contentBinding="TTT.TilesController" itemViewClass="TTT.TileView"}}
+    <div class="row">
+      {{collection contentBinding="TTT.TilesController" itemViewClass="TTT.TileView"}}
+    </div>
   </div>
 </script>
 
