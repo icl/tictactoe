@@ -16,3 +16,12 @@ Feature: TTT Game
     And I select "Normal" from "Condition"
     And I press "Start Game"
     Then I should be redirected to a new game
+
+  Scenario: Make a Move
+    Given I create a new game with dimension "3"
+    And I follow "1"
+    Then I should see "Human 1"
+
+  Scenario: Undo Last Move
+
+

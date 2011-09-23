@@ -9,9 +9,14 @@ Feature: Subject Records
 
   Scenario: Create Subject
     When I fill in "Subject Initials" with "BB"
+    And I fill in "Subject Email" with "someone@host.com"
     And I press "Create Subject"
     Then I should see "Subject was successfully created"
 
   Scenario: Don't Fill in Initials
     When I press "Create Subject"
     Then I should see "Initials can't be blank"
+
+  Scenario: Don't fill in Email
+    When I press "Create Subject"
+    Then I should see "Email can't be blank"
