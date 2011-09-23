@@ -32,13 +32,10 @@ TTT.Tile = SC.Object.extend({
 
   
   labelString: function(){ 
-    return "Boom";
-/*
     if ( position > 0 ) {
-      return alpha[position / game.dimension] + (position % dimension)
+      return alpha[position / this.game.dimension] + (position % this.game.dimension)
     }
-*/
-  }.property('label')
+  }.property('position')
 
 });
 
