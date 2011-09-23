@@ -1,4 +1,3 @@
-
 var TTT = SC.Application.create();
 
 TTT.Move = SC.Object.extend({

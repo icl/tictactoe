@@ -17,4 +17,4 @@
 
 //= require sproutcore
 
-
+//= require game

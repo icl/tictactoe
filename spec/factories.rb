@@ -2,6 +2,7 @@ FactoryGirl.define do
 
   factory :subject do
     sequence(:initials) { |n| "SUB%04d" % n }
+    sequence(:email) { |n|  "sub%04d@host.com" % n }
   end
 
   factory :experimental_condition do
@@ -16,5 +17,10 @@ FactoryGirl.define do
     factory :skewed do
       name "Skewed"
     end
+  end
+
+  factory :game do
+    dimension 3
+    association :experimental_condition
   end
 end

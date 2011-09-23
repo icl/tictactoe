@@ -18,7 +18,8 @@ Feature: TTT Game
     Then I should be redirected to a new game
 
   Scenario: Make a Move
-    Given I create a new game with dimension "3"
+    Given a game exists
+    And I visit the first game
     And I follow "1"
     Then I should see "Human 1"
 

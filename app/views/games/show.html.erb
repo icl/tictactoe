@@ -1,9 +1,23 @@
-<% javascript 'game' %>
-
 <div class="page-header">
   <h1>Game <small><%= @game.experimental_condition_name %> </small></h1>
 </div>
 
+<script type="text/x-handlebars" data-template-name="TTT.BoardView">
+  <div class="span12 board_background">
+    <div class="row">
+      {{collection contentBinding="TTT.TilesController" itemViewClass="TTT.TileView"}}
+    </div>
+  </div>
+</script>
+
+<script type="text/x-handlebars" data-template-name="TTT.move_list_item">
+  <td>{{content.player}}</td> 
+  <td>{{content.position}}</td>
+</script>
+
+<script type="text/x-handlebars" data-template-name="TTT.TileView">
+    {{content.position}}
+</script>
 
 
 <div class="row">
@@ -28,19 +42,4 @@
   </script>
 </div>
 
-<script type="text/x-handlebars" data-template-name="TTT.BoardView">
-  <div class="span12 board_background">
-    <div class="row">
-      {{collection contentBinding="TTT.TilesController" itemViewClass="TTT.TileView"}}
-    </div>
-  </div>
-</script>
 
-<script type="text/x-handlebars" data-template-name="TTT.move_list_item">
-  <td>{{content.player}}</td> 
-  <td>{{content.position}}</td>
-</script>
-
-<script type="text/x-handlebars" data-template-name="TTT.TileView">
-    {{content.position}}
-</script>

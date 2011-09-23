@@ -39,4 +39,6 @@ Ttt::Application.configure do
 
   # Allow pass debug_assets=true as a query parameter to load pages with unpackaged assets
   config.assets.allow_debugging = true
+  config.assets.debug = true
+
 end
