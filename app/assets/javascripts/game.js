@@ -1,8 +1,14 @@
 var TTT = SC.Application.create();
 
+
 TTT.Move = SC.Object.extend({
   player: 'human',
   position: 0
+});
+
+TTT.Game = SC.Object.extend({
+  dimension: 3,
+  condition: "Normal"
 });
 
 TTT.MovesController = SC.ArrayProxy.create({
@@ -27,12 +33,17 @@ TTT.TilesController = SC.ArrayProxy.create({
     this.pushObject(tile);
   }
 });
+console.warn(TTT.current_game);
+var dimension = TTT.current_game.get('dimension');
 
-[1,2,3,4,5,6,7,8,9].forEach(function(target) {
-  TTT.MovesController.createMove(target, 'human' );
-  TTT.TilesController.createTile(target);
-});
+for(row = 0; row < dimension; row++){
 
+  for(column =0; column < dimension; column++)
+  {
+    position = row *  dimension + column;
+    TTT.TilesController.createTile(position);
+  }
+}
 TTT.MoveListItem = SC.View.extend({
  templateName: 'TTT.move_list_item',
  tagName: "tr"
@@ -42,7 +53,10 @@ TTT.TileView = SC.View.extend({
   classNameBindings: ['classnames', 'isDisabled:disabled'],
   isDisabled: function(){ content.get('used') },
   classnames: "btn primary btile",
-  templateName: "TTT.TileView"
+  templateName: "TTT.TileView",
+  mouseDown: function() {
+    TTT.MovesController.createMove( this.content.position, 'human');
+  }
 });
 
 TTT.UndoLastMoveView = SC.View.extend({

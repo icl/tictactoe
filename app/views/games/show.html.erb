@@ -2,6 +2,10 @@
   <h1>Game <small><%= @game.experimental_condition_name %> </small></h1>
 </div>
 
+<script>
+  TTT.current_game = TTT.Game.create({dimension: <%= @game.dimension %>, condition: "<%= @game.experimental_condition_name %>", id: <%= @game.id %>});
+</script>
+
 <script type="text/x-handlebars" data-template-name="TTT.BoardView">
   <div class="span12 board_background">
     <div class="row">
@@ -16,7 +20,7 @@
 </script>
 
 <script type="text/x-handlebars" data-template-name="TTT.TileView">
-    {{content.position}}
+  <a href="#" >{{content.position}} </a>
 </script>
 
 

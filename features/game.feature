@@ -16,12 +16,13 @@ Feature: TTT Game
     And I select "Normal" from "Condition"
     And I press "Start Game"
     Then I should be redirected to a new game
+    And I should see "Normal"
 
   Scenario: Make a Move
     Given a game exists
     And I visit the first game
     And I follow "1"
-    Then I should see "Human 1"
+    Then I should see "human 1"
 
   Scenario: Undo Last Move
 
