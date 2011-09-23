@@ -3,7 +3,7 @@
 </div>
 
 <script>
-  TTT.current_game = TTT.Game.create({dimension: <%= @game.dimension %>, condition: "<%= @game.experimental_condition_name %>", id: <%= @game.id %>});
+  var current_game = {dimension: <%= @game.dimension %>, condition: "<%= @game.experimental_condition_name %>", id: <%= @game.id %>};
 </script>
 
 <script type="text/x-handlebars" data-template-name="TTT.BoardView">
@@ -20,7 +20,7 @@
 </script>
 
 <script type="text/x-handlebars" data-template-name="TTT.TileView">
-  <a href="#" >{{content.position}} </a>
+  <a href="#" >{{content.label}} </a>
 </script>
 
 

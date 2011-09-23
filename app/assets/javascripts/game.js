@@ -1,4 +1,5 @@
 var TTT = SC.Application.create();
+var alpha = ['A','B','C','D','E']
 
 
 TTT.Move = SC.Object.extend({
@@ -10,6 +11,9 @@ TTT.Game = SC.Object.extend({
   dimension: 3,
   condition: "Normal"
 });
+
+TTT.current_game = TTT.Game.create(current_game);
+
 
 TTT.MovesController = SC.ArrayProxy.create({
   content: [],
@@ -23,7 +27,19 @@ TTT.MovesController = SC.ArrayProxy.create({
 });
 
 TTT.Tile = SC.Object.extend({
-  position: 0
+  position: 0,
+  game: TTT.current_game,
+
+  
+  labelString: function(){ 
+    return "Boom";
+/*
+    if ( position > 0 ) {
+      return alpha[position / game.dimension] + (position % dimension)
+    }
+*/
+  }.property('label')
+
 });
 
 TTT.TilesController = SC.ArrayProxy.create({
@@ -33,14 +49,14 @@ TTT.TilesController = SC.ArrayProxy.create({
     this.pushObject(tile);
   }
 });
-console.warn(TTT.current_game);
-var dimension = TTT.current_game.get('dimension');
+
+var dimension = current_game['dimension'];
 
 for(row = 0; row < dimension; row++){
 
   for(column =0; column < dimension; column++)
   {
-    position = row *  dimension + column;
+    position = row *  dimension + column + 1;
     TTT.TilesController.createTile(position);
   }
 }
