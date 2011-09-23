@@ -12,7 +12,7 @@ Feature: TTT Game
     And I follow "New Game"
 
   Scenario: Start a new game
-    When I fill in "3" for "Dimension"
+    When I select "3" from "Dimension"
     And I select "Normal" from "Condition"
     And I press "Start Game"
     Then I should be redirected to a new game

@@ -8,7 +8,7 @@ Feature: Subject Records
     And I am on the new subject page
 
   Scenario: Create Subject
-    When I fill in "Initials" with "BB"
+    When I fill in "Subject Initials" with "BB"
     And I press "Create Subject"
     Then I should see "Subject was successfully created"
 
