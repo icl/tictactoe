@@ -4,7 +4,8 @@ var alpha = ['?', 'A','B','C','D','E']
 
 TTT.Move = SC.Object.extend({
   player: 'human',
-  position: 0
+  position: 0,
+  label: '?'
 });
 
 TTT.Game = SC.Object.extend({
@@ -17,8 +18,8 @@ TTT.current_game = TTT.Game.create(current_game);
 
 TTT.MovesController = SC.ArrayProxy.create({
   content: [],
-  createMove: function(position, player) {
-    var move = TTT.Move.create({ position: position, player: player });
+  createMove: function(position, player, tile) {
+    var move = TTT.Move.create({ position: position, player: player, tile:tile });
     this.pushObject(move);
   },
   undoLastMove: function(){
@@ -34,7 +35,7 @@ TTT.Tile = SC.Object.extend({
      return  Math.ceil( this.position / this.game.dimension); 
   },
   column: function(){
-    return (this.position === this.game.dimension ? this.position : this.position % this.game.dimension );
+    return (this.position % 3 === 0? this.game.dimension : this.position % this.game.dimension );
   },
   labelString: function(){ 
     
@@ -74,7 +75,7 @@ TTT.TileView = SC.View.extend({
   classnames: "btn primary btile",
   templateName: "TTT.TileView",
   mouseDown: function() {
-    TTT.MovesController.createMove( this.content.position, 'human');
+    TTT.MovesController.createMove( this.content.position, 'human', this.content );
   }
 });
 
