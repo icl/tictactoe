@@ -1,5 +1,5 @@
 var TTT = SC.Application.create();
-var alpha = ['A','B','C','D','E']
+var alpha = ['?', 'A','B','C','D','E']
 
 
 TTT.Move = SC.Object.extend({
@@ -27,16 +27,22 @@ TTT.MovesController = SC.ArrayProxy.create({
 });
 
 TTT.Tile = SC.Object.extend({
-  position: 0,
-  game: TTT.current_game,
-
   
+  game: TTT.current_game,
+  position: 0,
+  row: function(){
+     return  Math.ceil( this.position / this.game.dimension); 
+  },
+  column: function(){
+    return (this.position === this.game.dimension ? this.position : this.position % this.game.dimension );
+  },
   labelString: function(){ 
-    if ( position > 0 ) {
-      return alpha[position / this.game.dimension] + (position % this.game.dimension)
+    
+    if ( this.position > 0 ) {
+      
+      return alpha[this.column()] + this.row();
     }
-  }.property('position')
-
+   }.property('row', 'column')
 });
 
 TTT.TilesController = SC.ArrayProxy.create({
