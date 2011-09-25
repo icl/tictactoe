@@ -65,6 +65,7 @@ for(row = 0; row < dimension; row++){
   }
 }
 TTT.MoveListItem = SC.View.extend({
+  classNames: 'important label',
  templateName: 'TTT.move_list_item',
  tagName: "tr"
 })
