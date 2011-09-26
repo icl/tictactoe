@@ -9,8 +9,6 @@ TTT.Move = SC.Object.extend({
 });
 
 TTT.Game = SC.Object.extend({
-  dimension: 3,
-  condition: "Normal"
 });
 
 TTT.current_game = TTT.Game.create(current_game);
@@ -35,7 +33,7 @@ TTT.Tile = SC.Object.extend({
      return  Math.ceil( this.position / this.game.dimension); 
   },
   column: function(){
-    return (this.position % 3 === 0? this.game.dimension : this.position % this.game.dimension );
+    return (this.position % this.game.dimension === 0? this.game.dimension : this.position % this.game.dimension );
   },
   labelString: function(){ 
     

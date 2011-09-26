@@ -22,5 +22,13 @@ FactoryGirl.define do
   factory :game do
     dimension 3
     association :experimental_condition
+
+    factory :by4game do
+      dimension 4
+    end
+
+    factory :by5game do
+      dimension 5
+    end
   end
 end
