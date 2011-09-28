@@ -1,11 +1,7 @@
 
 .btile {
-  width: 190px;
   margin-left:20px;
   margin-bottom: 20px;
-  height:190px;
-  line-height:180px;
-  font-size: 500%;
   text-align: center;
 
 }
@@ -17,3 +13,28 @@
 .move_history {
 height: 700px;
 }
+
+.by_3 .btile {
+  width: 190px;
+  height:190px;
+  line-height:180px;
+  font-size: 500%;
+
+}
+
+.by_4 .btile {
+  width: 130px;
+  height:130px;
+  line-height:120px;
+  font-size: 400%;
+
+}
+
+.by_5 .btile {
+  width: 90px;
+  height: 90px;
+  line-height:80px;
+  font-size: 200%;
+}
+
+

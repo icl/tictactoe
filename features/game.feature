@@ -18,6 +18,10 @@ Feature: TTT Game
     Then I should be redirected to a new game
     And I should see "Normal"
 
+  Scenario: Start a new training game
+    When I select "3" from "Dimension"
+    And I select "Training" from "Condition"
+
   Scenario Outline: Make a Move
     Given a game exists
     And I visit the first game

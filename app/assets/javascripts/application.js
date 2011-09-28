@@ -17,4 +17,5 @@
 
 //= require sproutcore
 
+//= require ttt_require
 //= require game

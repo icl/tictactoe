@@ -1,29 +1,13 @@
-var TTT = SC.Application.create();
+//= require ttt
+
 var alpha = ['?', 'A','B','C','D','E']
 
 
-TTT.Move = SC.Object.extend({
-  player: 'human',
-  position: 0,
-  label: '?'
-});
-
-TTT.Game = SC.Object.extend({
-});
 
 TTT.current_game = TTT.Game.create(current_game);
 
 
-TTT.MovesController = SC.ArrayProxy.create({
-  content: [],
-  createMove: function(position, player, tile) {
-    var move = TTT.Move.create({ position: position, player: player, tile:tile });
-    this.pushObject(move);
-  },
-  undoLastMove: function(){
-    this.popObject()
-  }
-});
+
 
 TTT.Tile = SC.Object.extend({
   
@@ -63,7 +47,7 @@ for(row = 0; row < dimension; row++){
   }
 }
 TTT.MoveListItem = SC.View.extend({
-  classNames: 'important label',
+  classNames: '',
  templateName: 'TTT.move_list_item',
  tagName: "tr"
 })
@@ -73,8 +57,9 @@ TTT.TileView = SC.View.extend({
   isDisabled: function(){ content.get('used') },
   classnames: "btn primary btile",
   templateName: "TTT.TileView",
-  mouseDown: function() {
-    TTT.MovesController.createMove( this.content.position, 'human', this.content );
+  mouseDown: function(event) {
+    console.warn(event);
+    TTT.MovesController.createMove( this.content.position, 'human', this.content, event.timeStamp  );
   }
 });
 

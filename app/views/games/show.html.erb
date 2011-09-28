@@ -9,7 +9,7 @@
 <script type="text/x-handlebars" data-template-name="TTT.BoardView">
   <div class="span12 board_background">
     <div class="row">
-      {{collection contentBinding="TTT.TilesController" itemViewClass="TTT.TileView"}}
+      {{collection contentBinding="TTT.TilesController" itemViewClass="TTT.TileView"  class="by_<%=@game.dimension%>"}}
     </div>
   </div>
 </script>
@@ -31,17 +31,18 @@
 
   <script type="text/x-handlebars">
     <div class="span4">
-      <table class="">
+      {{#view TTT.UndoLastMoveView }}
+        <a href="#" class="btn danger" >Undo Last Move</a>
+      {{/view}}
+
+      <table>
       <thead>
         <th>Player</th>
         <th>Position</th>
       </thead>
       {{collection contentBinding="TTT.MovesController" itemViewClass="TTT.MoveListItem" tagName="tbody"  }}
     </table>
-    {{#view TTT.UndoLastMoveView }}
-    <a class="btn danger" >Undo Last Move</a>
-    {{/view}}
-  </div>
+   </div>
 
   </script>
 </div>
