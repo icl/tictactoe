@@ -5,3 +5,6 @@
 //= require controllers/moves_controller
 
 //= require models/tile
+//= require controllers/tiles_controller
+
+//= require views/tile

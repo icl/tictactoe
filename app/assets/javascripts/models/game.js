@@ -1,1 +1,3 @@
-TTT.Game = SC.Object.extend({ });
+TTT.Game = SC.Object.extend({
+});
+
