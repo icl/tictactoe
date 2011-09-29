@@ -5,6 +5,6 @@ TTT.TileView = SC.View.extend({
   templateName: "TTT.TileView",
   mouseDown: function(event) {
     console.warn(event);
-    TTT.MovesController.createMove( this.content.position, 'human', this.content, event.timeStamp  );
+    this.content.game.MoveHistory.createMove( this.content.position, 'human', this.content, event.timeStamp  );
   }
 });

@@ -9,7 +9,7 @@
 <script type="text/x-handlebars" data-template-name="TTT.BoardView">
   <div class="span12 board_background">
     <div class="row">
-      {{collection contentBinding="TTT.TilesController" itemViewClass="TTT.TileView"  class="by_<%=@game.dimension%>"}}
+      {{collection contentBinding="GameDriver.Tiles" itemViewClass="TTT.TileView"  class="by_<%=@game.dimension%>"}}
     </div>
   </div>
 </script>
@@ -40,7 +40,7 @@
         <th>Player</th>
         <th>Position</th>
       </thead>
-      {{collection contentBinding="TTT.MovesController" itemViewClass="TTT.MoveListItem" tagName="tbody"  }}
+      {{collection contentBinding="GameDriver.MoveHistory" itemViewClass="TTT.MoveListItem" tagName="tbody"  }}
     </table>
    </div>
 

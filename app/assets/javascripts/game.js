@@ -1,21 +1,16 @@
-//= require ttt
 
-var alpha = ['?', 'A','B','C','D','E']
+var GameDriver = TTT.Game.create(current_game);
+GameDriver.set('MoveHistory', TTT.MovesController.create({game: GameDriver}));
+GameDriver.set('Tiles', TTT.TilesController.create({game: GameDriver}));
 
-var dimension = current_game['dimension'];
+var dimension = GameDriver.get('dimension');
 
 for(row = 0; row < dimension; row++){
 
   for(column =0; column < dimension; column++)
   {
     position = row *  dimension + column + 1;
-    TTT.TilesController.createTile(position );
+    GameDriver.Tiles.createTile(position, GameDriver);
   }
 }
 
-
-
-
-TTT.MoveHistory = SC.View.extend({
- content: "Secondary content"
-});

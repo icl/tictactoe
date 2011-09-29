@@ -1,7 +1,7 @@
-TTT.TilesController = SC.ArrayProxy.create({
+TTT.TilesController = SC.ArrayProxy.extend({
   content: [],
-  createTile: function(position) {
-    var tile = TTT.Tile.create({ position: position });
+  createTile: function(position, game) {
+    var tile = TTT.Tile.create({ position: position, game:game});
     this.pushObject(tile);
   }
 });

@@ -4,7 +4,7 @@ TTT.Tile = SC.Object.extend({
      return this.game ? Math.ceil( this.position / this.game.dimension) : '?' ; 
   },
   column: function(){
-    return this.game ?  alpha[(this.position % this.game.dimension === 0? this.game.dimension : this.position % this.game.dimension )] : '?';
+    return this.game ?  this.game.column_labels[(this.position % this.game.dimension === 0? this.game.dimension : this.position % this.game.dimension )] : '?';
   },
   labelString: function(){ 
     
