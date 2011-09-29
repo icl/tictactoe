@@ -12,6 +12,8 @@ TTT.Tile = SC.Object.extend({
       
       return this.column() + this.row();
     }
-   }.property('row', 'column')
+   }.property('row', 'column'),
+
+   used: true
 });
 
