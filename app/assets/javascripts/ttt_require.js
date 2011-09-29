@@ -11,3 +11,4 @@
 
 //= require views/tile
 
+//= require views/board_view

@@ -14,9 +14,7 @@ for(row = 0; row < dimension; row++){
 }
 
 
-TTT.BoardView = SC.View.extend({
- templateName: "TTT.BoardView"
-});
+
 
 TTT.MoveHistory = SC.View.extend({
  content: "Secondary content"
