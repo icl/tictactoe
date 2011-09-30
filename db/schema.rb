@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110923205746) do
+ActiveRecord::Schema.define(:version => 20110930202834) do
 
   create_table "experimental_conditions", :force => true do |t|
     t.string   "name"
@@ -23,6 +23,18 @@ ActiveRecord::Schema.define(:version => 20110923205746) do
     t.integer  "subject_id"
     t.integer  "dimension"
     t.integer  "experimental_condition_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "moves", :force => true do |t|
+    t.integer  "subject_position"
+    t.integer  "computer_position"
+    t.integer  "prompt_timestamp"
+    t.integer  "move_timestamp"
+    t.integer  "game_id"
+    t.integer  "subject_id"
+    t.string   "board_state"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

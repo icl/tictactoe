@@ -1,4 +1,6 @@
 Ttt::Application.routes.draw do
+  resources :moves
+
   get "welcome/index"
 
   root :to => "welcome#index"
