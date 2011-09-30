@@ -15,8 +15,8 @@
 </script>
 
 <script type="text/x-handlebars" data-template-name="TTT.move_list_item">
-  <td>{{content.player}}</td> 
   <td>{{content.tile.labelString}}</td>
+  <td>{{content.computer_position }} </td>
 </script>
 
 <script type="text/x-handlebars" data-template-name="TTT.TileView">
@@ -31,14 +31,14 @@
 
   <script type="text/x-handlebars">
     <div class="span4">
-      {{#view TTT.UndoLastMoveView  contentBinding="GameDriver.MoveHistory" }}
+      {{#view TTT.UndoLastMoveView  contentBinding="GameDr<D-r>iver.MoveHistory" }}
         <a href="#" class="btn danger" >Undo Last Move</a>
       {{/view}}
 
       <table>
       <thead>
-        <th>Player</th>
-        <th>Position</th>
+        <th>Subject</th>
+        <th>Computer</th>
       </thead>
       {{collection contentBinding="GameDriver.MoveHistory" itemViewClass="TTT.MoveListItem" tagName="tbody"  }}
     </table>

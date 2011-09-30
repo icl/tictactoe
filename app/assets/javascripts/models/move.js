@@ -1,7 +1,10 @@
 TTT.Move = SC.Object.extend({
-  player: 'human',
-  position: 0,
-  label: '?'
+  subject_position: 0,
+  label: '?',
+  isError: function(){
+
+return false;
+  }.property('subject_position', 'history.content')
 });
 
 
