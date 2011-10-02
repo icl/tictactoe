@@ -44,7 +44,8 @@ Feature: TTT Game
     Given a by4game exists
     And I visit the first game
     And I follow "<tile>"
-    Then I should see "<result>"
+    Then I should see "<result>" within "table"
+
 
     Examples:
       |tile| result  |
@@ -69,7 +70,8 @@ Feature: TTT Game
     Given a by5game exists
     And I visit the first game
     And I follow "<tile>"
-    Then I should see "<result>"
+    Then I should see "<result>" within "table"
+
 
     Examples:
       |tile| result  |

@@ -1,14 +1,15 @@
 TTT.MovesController = SC.ArrayProxy.extend({
   content: [],
-  createMove: function(position, player, tile, timeStamp) {
-
-    $.post('/moves.json', {move: {subject_position: position}},function(data, textStatus, jqXHR){
-     
+  createMove: function(data) {
     move = TTT.Move.create(data);
-    GameDriver.MoveHistory.pushObject(move);
+    console.warn(move);
+   this.pushObject(move);
 
-    } );
     
+    
+  },
+  registerMove: function(tile, event) {
+     $.post('/moves.json', {move: {subject_position: position}}, this.CreateMove)
   },
   undoLastMove: function(){
     this.popObject()

@@ -4,6 +4,6 @@ TTT.TileView = SC.View.extend({
   classnames: "btn primary btile",
   templateName: "TTT.TileView",
   mouseDown: function(event) {
-    this.content.game.MoveHistory.createMove( this.content.position, 'human', this.content, event.timeStamp  );
+    this.content.game.MoveHistory.registerMove( this, event  );
   }
 });
