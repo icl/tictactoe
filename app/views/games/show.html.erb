@@ -2,7 +2,7 @@
   <h1>Subject: <%= @game.subject.initials %> <small><%= @game.experimental_condition_name %> </small> </h1>
 </div>
 <script>
-  var current_game = {dimension: <%= @game.dimension %>, condition: "<%= @game.experimental_condition_name %>", id: <%= @game.id %>};
+  var current_game = {dimension: <%= @game.dimension %>,id: <%= @game.id %>, subject_id: <%= @game.subject_id %>, condition: "<%= @game.experimental_condition_name %>", id: <%= @game.id %>};
 </script>
 
 <script type="text/x-handlebars" data-template-name="TTT.BoardView">
