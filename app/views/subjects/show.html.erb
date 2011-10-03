@@ -1,21 +1,38 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>Subject Initials:</b>
+<div class="page-header">
+<h1>
+  Subject:
   <%= @subject.initials %>
-</p>
+</h1>
+</div>
+<div class="row">
+  <div class="span8">
+  <h2>Start a new Game</h2>
+  <%= form_for @game do |f| %>
 
-<h1>Start a new Game</h1>
-<%= form_for @game do |f| %>
-
-  <%= f.hidden_field :subject_id%>
-  <fieldset>
-    <%= bootstrap_clearfix_wrap(:game, :dimension, f.select(:dimension, 3..5), {:object => @game}) %>
-    <%= f.bootstrap_collection_select :experimental_condition_id, ExperimentalCondition.all, :id, :name, :label => "Condition" %>
-  </fieldset>
-  <div class="actions">
-    <%= f.submit "Start Game", :class => "btn primary"%>
+    <%= f.hidden_field :subject_id%>
+    <fieldset>
+      <%= bootstrap_clearfix_wrap(:game, :dimension, f.select(:dimension, 3..5), {:object => @game}) %>
+      <%= f.bootstrap_collection_select :experimental_condition_id, ExperimentalCondition.all, :id, :name, :label => "Condition" %>
+    </fieldset>
+    <div class="actions">
+      <%= f.submit "Start Game", :class => "btn primary"%>
+    </div>
+  <% end %>
+  <%= link_to 'Edit', edit_subject_path(@subject) %> |
+  <%= link_to 'Back', subjects_path %>
   </div>
-<% end %>
-<%= link_to 'Edit', edit_subject_path(@subject) %> |
-<%= link_to 'Back', subjects_path %>
+
+  <div class="span4">
+  <table>
+    <thead>
+      <th>Condition</th>
+    </thead>
+    <% @subject.games.each do | game | %>
+      <tr><td>
+          <%= game.experimental_condition.name %>
+      </td></tr>
+    <% end %>
+  </table>
+  </div>
+</div>

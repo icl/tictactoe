@@ -1,6 +1,6 @@
 <div class="page-header">
   <h1>Subject: <%= @game.subject.initials %> <small><%= @game.experimental_condition_name %> </small> </h1>
-
+</div>
 <script>
   var current_game = {dimension: <%= @game.dimension %>, condition: "<%= @game.experimental_condition_name %>", id: <%= @game.id %>};
 </script>
@@ -48,7 +48,7 @@
 
 <div class="row">
   <div class="span12">
-    <h1><%= link_to "End Game", subject_path(@subject) %></h1>
+    <h1><%= link_to "End Game", subject_path(@game.subject) %></h1>
   </div>
  </div>
 

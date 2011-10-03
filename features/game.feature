@@ -9,7 +9,6 @@ Feature: TTT Game
     Given I log in
     And a subject exists
     And I visit the first subject's page
-    And I follow "New Game"
 
   Scenario: Start a new game
     When I select "3" from "Dimension"
