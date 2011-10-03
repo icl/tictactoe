@@ -113,5 +113,5 @@ Feature: TTT Game
   Scenario: Quit game in progress
     Given a game exists
     And I visit the first game
-    And I follow "Return to Subject"
+    And I follow "End Game"
     Then I should be redirected to a subject page

@@ -17,7 +17,7 @@ class SubjectsController < ApplicationController
   # GET /subjects/1.json
   def show
     @subject = Subject.find(params[:id])
-
+    @game = Game.new(subject: @subject)
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @subject }

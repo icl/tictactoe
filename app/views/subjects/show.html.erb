@@ -1,13 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Initials:</b>
+  <b>Subject Initials:</b>
   <%= @subject.initials %>
 </p>
 
-<h2><%= link_to "New Game", new_game_path %></h2>
+<h1>Start a new Game</h1>
+<%= form_for @game do |f| %>
 
-
-
+  <%= f.hidden_field :subject_id%>
+  <fieldset>
+    <%= bootstrap_clearfix_wrap(:game, :dimension, f.select(:dimension, 3..5), {:object => @game}) %>
+    <%= f.bootstrap_collection_select :experimental_condition_id, ExperimentalCondition.all, :id, :name, :label => "Condition" %>
+  </fieldset>
+  <div class="actions">
+    <%= f.submit "Start Game", :class => "btn primary"%>
+  </div>
+<% end %>
 <%= link_to 'Edit', edit_subject_path(@subject) %> |
 <%= link_to 'Back', subjects_path %>

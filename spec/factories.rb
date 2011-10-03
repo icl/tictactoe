@@ -17,6 +17,12 @@ FactoryGirl.define do
     factory :skewed do
       name "Skewed"
     end
+    factory :blind do
+      name "Blind"
+    end
+    factory :training do
+      name "Training"
+    end
   end
 
   factory :game do
