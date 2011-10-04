@@ -1,5 +1,8 @@
 TTT.MovesController = SC.ArrayProxy.extend({
   content: [],
+  lastValidMove: function() {
+    return this.filterProperty('is_error', false).pop();
+  }.property('@each.is_error'),
   createMove: function(data) {
     move = TTT.Move.create(data);
     move.set('game', this.get('game'))
@@ -23,6 +26,13 @@ TTT.MovesController = SC.ArrayProxy.extend({
      });
   },
   undoLastMove: function(){
-    this.popObject()
+    if (this.get('lastObject')){
+      move = this.get('lastObject');
+    move_controller = this;
+    $.post('/moves/' + this.get('lastObject').get('id') + '.json' , { _method: 'delete' }, function(){
+      console.warn('got here');
+    });
+    move_controller.removeObject(move);
+    };
   }
 });

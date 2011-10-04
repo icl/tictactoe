@@ -3,7 +3,7 @@ TTT.MoveListItem = SC.View.extend({
  templateName: 'TTT.move_list_item',
  tagName: "tr",
  classNames: "",
- classNameBindings: "content.isError:important"
+ classNameBindings: "content.is_error:important label"
 
 })
 

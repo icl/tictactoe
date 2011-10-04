@@ -8,7 +8,7 @@ class Move < ActiveRecord::Base
 
 
   def check_if_error
-    self.is_error  = false
+    self.is_error  = game.moves.where(subject_position: self.subject_position).count > 0
   end
 
   def compute_response!

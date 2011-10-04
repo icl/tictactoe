@@ -12,4 +12,14 @@ class MovesController < ApplicationController
     end
 
   end
+
+  def destroy
+    @move = Move.find(params[:id])
+    @move.destroy
+
+    respond_to do |format|
+      format.json { head :ok }
+    end
+
+  end
 end
