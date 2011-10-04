@@ -11,12 +11,11 @@ class Game < ActiveRecord::Base
 
   def state
     
-    a = Array.new.fill('-', 0..(dimension * dimension))
+    a = Array.new.fill('-', 0, (dimension * dimension))
     moves.each do | move |
-      a[move.subject_position - 1] = 1 if !move.error?
-      a[move.computer_position - 1 ] = 2 if !move.error?
+      a[move.subject_position - 1] = 'X' if !move.is_error?
+      a[move.computer_position - 1 ] = 'O' if !move.is_error?
     end
-    puts a
     a
   end
 end
