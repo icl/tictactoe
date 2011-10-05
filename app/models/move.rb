@@ -8,7 +8,7 @@ class Move < ActiveRecord::Base
 
   def check_if_error
     self.is_error  = game.moves.where(subject_position: self.subject_position).length > 0 || 
-                     game.moves.where(computer_position: self.subject_position).count > 0 
+                     game.moves.where(computer_position: self.subject_position).length > 0 
                      
       
     is_error
@@ -16,9 +16,10 @@ class Move < ActiveRecord::Base
 
   def compute_response!
     check_if_error
-    if !is_error
-      ttt = TTT.new(state: game.state, dimension: game.dimension)
 
+    ttt = TTT.new(state: game.state, dimension: game.dimension)
+    if !is_error && !ttt.over?
+      
       puts "game state"
       puts ttt.state.join('')
 
