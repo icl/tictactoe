@@ -7,8 +7,9 @@ class Move < ActiveRecord::Base
 
 
   def check_if_error
-    self.is_error  = game.moves.where(subject_position: self.subject_position).length > 0 || 
-                     game.moves.where(computer_position: self.subject_position).length > 0 
+    self.is_error  = (game.moves.where(subject_position: self.subject_position).length > 0 || 
+                     game.moves.where(computer_position: self.subject_position).length > 0 ||
+                     TTT.new(state: game.state, dimension: game.dimension).winner)
                      
       
     is_error
@@ -29,8 +30,9 @@ class Move < ActiveRecord::Base
 
 
       self.computer_position = ttt.next_move
-      self.save!
     end
+          self.save!
+
   end
 
   def is_error?
