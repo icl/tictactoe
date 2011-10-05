@@ -14,7 +14,7 @@ class Game < ActiveRecord::Base
     a = Array.new.fill('-', 0, (dimension * dimension))
     moves.each do | move |
       a[move.subject_position - 1] = 'X' if !move.is_error?
-      a[move.computer_position - 1 ] = 'O' if !move.is_error?
+      a[move.computer_position - 1 ] = 'O' if !move.is_error? && move.computer_position
     end
     a
   end
