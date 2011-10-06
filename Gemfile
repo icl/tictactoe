@@ -17,7 +17,6 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'twitter-bootstrap-rails', :git => 'http://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'factory_girl_rails'
 gem 'factory_girl'
 
