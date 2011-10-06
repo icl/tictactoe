@@ -2,7 +2,7 @@
 <div class="page-header">
 <h1>
   Subject:
-  <%= @subject.initials %>
+  <%= @subject.initials %> <small><%= mail_to @subject.email %>
 </h1>
 </div>
 <div class="row">
@@ -27,11 +27,17 @@
   <table>
     <thead>
       <th>Condition</th>
+      <th>Dimension</th>
     </thead>
     <% @subject.games.each do | game | %>
-      <tr><td>
-          <%= game.experimental_condition.name %>
-      </td></tr>
+      <tr>
+        <td>
+          <%= link_to game.experimental_condition.name, game %>
+        </td>
+        <td>
+          <%= game.dimension %>
+       </td>
+    </tr>
     <% end %>
   </table>
   </div>
