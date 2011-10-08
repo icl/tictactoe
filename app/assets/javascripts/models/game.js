@@ -17,8 +17,8 @@ TTT.Game = SC.Object.extend({
       column = this.column(position);
       label_array[position] = "" + this.get('row_labels')[row] +  this.get('column_labels')[column]  ;
     }
-
-    return label_array;  
+    //return label_array;
+     return [ '?','1','2','3','4','5','6','7','8','9','10','11','12','13','14','15', '16'];
   }.property('dimension', 'row_labels', 'column_labels')
 });
 
