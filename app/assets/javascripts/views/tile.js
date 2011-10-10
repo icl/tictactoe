@@ -12,5 +12,6 @@ TTT.TileView = SC.View.extend({
   templateName: "TTT.TileView",
   mouseDown: function(event) {
     this.content.game.MoveHistory.registerMove( this.content, event  );
+    return false;
   }
 });
