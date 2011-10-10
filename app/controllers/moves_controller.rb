@@ -7,7 +7,7 @@ class MovesController < ApplicationController
 
     respond_to do | format|
      if @move.save!
-       format.json { render json: @move, status: :created, location:@subject }
+       format.json { render json: @move, status: :created, location:@move }
      end
     end
 

@@ -55,6 +55,16 @@ describe TTT do
       game = TTT.new()
       game.make_move!
     end
+
+    it "should persist in making moves even if a tie is a forgon conclusion" do
+      game = TTT.new(state: ["X", "X", "O", "X",
+                             "-", "X", "O", "-", 
+                             "O", "X", "X", "-", 
+                             "X", "O", "O", "O"] , dimension: 4)
+      puts game.next_move
+      game.next_move.should_not be_nil
+
+    end
   end
 
   end

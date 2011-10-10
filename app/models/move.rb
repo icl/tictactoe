@@ -19,7 +19,7 @@ class Move < ActiveRecord::Base
     check_if_error
 
     ttt = TTT.new(state: game.state, dimension: game.dimension)
-    if !is_error && !ttt.over?
+    if !is_error
       
       puts "game state"
       puts ttt.state.join('')
