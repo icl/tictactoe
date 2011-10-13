@@ -6,7 +6,7 @@ class Move < ActiveRecord::Base
   #validates_presence_of :prompt_timestamp, :board_state
 
 
-  def check_if_error
+  def check_if_error!
     self.is_error  = (game.moves.where(subject_position: self.subject_position).length > 0 || 
                      game.moves.where(computer_position: self.subject_position).length > 0 ||
                      TTT.new(state: game.state, dimension: game.dimension).winner)
@@ -16,22 +16,18 @@ class Move < ActiveRecord::Base
   end
 
   def compute_response!
-    check_if_error
+    check_if_error!
+
+    if !is_error
 
     ttt = TTT.new(state: game.state, dimension: game.dimension)
-    if !is_error
+
       
-      puts "game state"
-      puts ttt.state.join('')
-
-      puts 'add players move'
       ttt.state[subject_position - 1 ] = 'X'
-      puts ttt.state.join('')
 
-
-      self.computer_position = ttt.next_move
+      self.computer_position = rand(2) > 1 ?  ttt.next_move : ttt.random_move
     end
-          self.save!
+    self.save!
 
   end
 

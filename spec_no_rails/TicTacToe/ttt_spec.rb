@@ -12,10 +12,18 @@ describe TTT do
     @o_winner = %w[ O O O
                     - - -
                     - - - ]
+
+    @new_board = %w[ - - -
+                       - - -
+                       - - - ]
+
+    @cat_board = %w[ X X O
+                     O O X
+                     X O O ]
   end
 
   it "should accept an array showing the state of the board" do
-    TTT.new(board: %w[ - - -
+    TTT.new(state: %w[ - - -
                        - - -
                        - - - ])
   end
@@ -41,7 +49,7 @@ describe TTT do
     end
   end
 
-  describe "Making moves" do
+  describe "Making good moves" do
     describe "next move" do
     it "should respond with index of the next the next move" do
       TTT.new().next_move
@@ -63,6 +71,24 @@ describe TTT do
                              "X", "O", "O", "O"] , dimension: 4)
       puts game.next_move
       game.next_move.should_not be_nil
+
+    end
+    
+    describe "Making random moves" do
+  
+      it "should attempt to make a random move" do
+
+        TTT.new(state: @new_board).random_move.should_not be_nil
+      end
+  
+      it "should not move a space that has already been used"   
+
+      it "should not move on a full board" do
+       game = TTT.new(state: @cat_board)
+       
+       game.random_move.should be_nil
+
+      end
 
     end
   end
