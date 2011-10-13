@@ -25,7 +25,17 @@ class Move < ActiveRecord::Base
       
       ttt.state[subject_position - 1 ] = 'X'
 
-      self.computer_position = rand(10) > 3 ? ttt.next_move : ttt.random_move
+      self.computer_position =
+       
+      the_decider = rand(10)
+      
+      if the_decider > 4
+      self.computer_position = ttt.next_move
+      self.strategy = "minimax"
+      else
+      self.computer_position = ttt.random_move
+      self.strategy = "random"
+      end
     end
     self.save!
 
