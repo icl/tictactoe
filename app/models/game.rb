@@ -9,11 +9,23 @@ class Game < ActiveRecord::Base
   validates_presence_of :subject_id
   delegate :name, :to => :experimental_condition, :prefix => true
 
+  after_save :move_first_if_neccesary
+
+  def move_first_if_neccesary
+    self.moves.create(  computer_position: (rand(self.dimension() * self.dimension() - 1 ) + 1)
+                     
+                     
+                     
+                     ) if self.comp_moves_first &&  self.moves.count == 0
+
+  end
+
+
   def state
     
     a = Array.new.fill('-', 0, (dimension * dimension))
     moves.each do | move |
-      a[move.subject_position - 1] = 'X' if !move.is_error?
+      a[move.subject_position - 1] = 'X' if !move.is_error? && move.subject_position
       a[move.computer_position - 1 ] = 'O' if !move.is_error? && move.computer_position
     end
     a

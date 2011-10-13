@@ -6,6 +6,7 @@ Feature: TTT Game
 
   Background:
     Given a standard set of experimental conditions exist
+    Given there are no games
     Given I log in
     And a subject exists
     And I visit the first subject's page
@@ -22,10 +23,10 @@ Feature: TTT Game
     And I select "Training" from "Condition"
 
   Scenario: Computer moves first
-    When I check "Computer Moves First"
+    When I check "Comp moves first"
     And I press "Start Game"
     Then I should be redirected to a new game
-
+    And the game should have a move
   Scenario: Quit game in progress
     Given a game exists
     And I visit the first game

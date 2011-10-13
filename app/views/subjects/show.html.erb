@@ -14,6 +14,8 @@
     <fieldset>
       <%= bootstrap_clearfix_wrap(:game, :dimension, f.select(:dimension, 3..5), {:object => @game}) %>
       <%= f.bootstrap_collection_select :experimental_condition_id, ExperimentalCondition.all, :id, :name, :label => "Condition" %>
+      <%= bootstrap_clearfix_wrap(:game, :comp_moves_first, f.check_box(:comp_moves_first), {:object => @game}) %>
+      
     </fieldset>
     <div class="actions">
       <%= f.submit "Start Game", :class => "btn primary"%>

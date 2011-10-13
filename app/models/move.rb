@@ -2,7 +2,7 @@ class Move < ActiveRecord::Base
 
   belongs_to :game
 
-  validates_presence_of :subject_position, :move_timestamp, :game_id, :subject_id
+#  validates_presence_of :subject_position, :move_timestamp, :game_id, :subject_id
   #validates_presence_of :prompt_timestamp, :board_state
 
 

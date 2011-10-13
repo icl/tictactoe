@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111003195250) do
+ActiveRecord::Schema.define(:version => 20111012190835) do
 
   create_table "experimental_conditions", :force => true do |t|
     t.string   "name"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20111003195250) do
     t.integer  "experimental_condition_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "comp_moves_first"
   end
 
   create_table "moves", :force => true do |t|
