@@ -11,7 +11,10 @@ class TTT
 
 
   def random_move
-    @state.each_with_index.collect { | v, i |  i if v.match /-/ }.compact.shuffle.first
+    move_index = @state.each_with_index.collect { | v, i |  i if v.match /-/ }.compact.shuffle.first
+
+    move_index + 1 if move_index
+
   end
 
   def over?
