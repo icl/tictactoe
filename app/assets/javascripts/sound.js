@@ -1,7 +1,7 @@
 //Borrowed from http://www.html5rocks.com/en/tutorials/canvas/notearsgame/
 var Sound = (function($) {
   var format = $.browser.webkit ? ".mp3" : ".wav";
-  var soundPath = "sounds/";
+  var soundPath = "/sounds/";
   var sounds = {};
 
   function loadSoundChannel(name) {

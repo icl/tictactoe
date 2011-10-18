@@ -23,6 +23,7 @@ TTT.MovesController = SC.ArrayProxy.extend({
      
      }}, function(data){
        move_controller.createMove(data)
+       Sound.play(data["computer_position"]);
      });
   },
   undoLastMove: function(){
