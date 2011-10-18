@@ -69,7 +69,7 @@ describe TTT do
                              "-", "X", "O", "-", 
                              "O", "X", "X", "-", 
                              "X", "O", "O", "O"] , dimension: 4)
-      puts game.next_move
+
       game.next_move.should_not be_nil
 
     end

@@ -3,17 +3,17 @@
 <table>
   <tr>
     <th>Initials</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Email</th>
+    <th>Games</th>
+    <th>Date</th>
   </tr>
 
 <% @subjects.each do |subject| %>
   <tr>
-    <td><%= subject.initials %></td>
-    <td><%= link_to 'Show', subject %></td>
-    <td><%= link_to 'Edit', edit_subject_path(subject) %></td>
-    <td><%= link_to 'Destroy', subject, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to subject.initials, subject %></td>
+    <td><%= mail_to subject.email %></td>
+    <td><%= subject.games.count  %></td>
+    <td><%= subject.updated_at %></td>
   </tr>
 <% end %>
 </table>

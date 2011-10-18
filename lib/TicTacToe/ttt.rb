@@ -48,14 +48,9 @@ class TTT
 
   def next_move
     if !winner
-      puts "current state and next state"
-      puts @state.join('')
-      puts next_state.join('')
-        next_state.each_with_index do | mark, index|
-      print '.'       
-      return index + 1 if mark != @state[index]
-    end
-    puts
+      next_state.each_with_index do | mark, index|
+        return index + 1 if mark != @state[index]
+      end
     end
   end
 

@@ -24,3 +24,8 @@ Feature: Welcome Page
     And I follow "New Subject"
     Then I should be on the new subject page
 
+  Scenario: View previous subjects
+    When I log in
+    And I go to the root page
+    And I follow "Previous Subjects"
+    Then I should be on the subjects page

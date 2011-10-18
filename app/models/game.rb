@@ -28,7 +28,6 @@ class Game < ActiveRecord::Base
       a[move.subject_position - 1] = 'X' if !move.is_error? && move.subject_position
       a[move.computer_position - 1 ] = 'O' if !move.is_error? && move.computer_position
     end
-    puts a
     a
   end
 end
