@@ -10,11 +10,15 @@ TTT.MovesController = SC.ArrayProxy.extend({
   },
   registerMove: function(tile, event) {
     move_controller = this;
+
+    this.get('game').prompt();
+
     $.post('/moves.json', 
       {move: {  subject_position: tile.get('position'),
                 move_timestamp: event.timeStamp,
                 game_id: this.getPath('game.id'),
-                subject_id: this.getPath('game.subject_id')
+                subject_id: this.getPath('game.subject_id'),
+                prompt_timestamp: this.getPath('game.last_prompt')
                 
      
      
@@ -23,7 +27,7 @@ TTT.MovesController = SC.ArrayProxy.extend({
      
      }}, function(data){
        move_controller.createMove(data)
-       Sound.play(data["computer_position"]);
+       move_controller.setPath('game.next_prompt',data["computer_position"]);
      });
   },
   undoLastMove: function(){
