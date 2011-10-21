@@ -13,19 +13,16 @@ TTT.MovesController = SC.ArrayProxy.extend({
 
     this.get('game').prompt();
 
+     console.warn( event.timeStamp - 
+       this.getPath('game.last_prompt'));
+  var boom =  this.get('game').last_prompt;
     $.post('/moves.json', 
       {move: {  subject_position: tile.get('position'),
                 move_timestamp: event.timeStamp,
                 game_id: this.getPath('game.id'),
                 subject_id: this.getPath('game.subject_id'),
                 prompt_timestamp: this.getPath('game.last_prompt')
-                
-     
-     
-     
-     
-     
-     }}, function(data){
+      }}, function(data){
        move_controller.createMove(data)
        move_controller.setPath('game.next_prompt',data["computer_position"]);
      });
