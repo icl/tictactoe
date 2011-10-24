@@ -11,9 +11,11 @@ class TTT
 
 
   def random_move
+    if !winner
     move_index = @state.each_with_index.collect { | v, i |  i if v.match /-/ }.compact.shuffle.first
 
     move_index + 1 if move_index
+    end
 
   end
 
@@ -25,6 +27,14 @@ class TTT
     @conversions[ TTT.winner? state_string, @dimension, @dimension, @dimension, 0,0 ]
   end
 
+        def available_positions
+      @state.each_with_index.collect { | v, i |  i  if v.match('-') }.compact
+    end
+
+  def move_available?
+    available_positions.count > 0
+  end
+  
   def tie?
     TTT.tie?( state_string, @dimension, @dimension, @dimension, 0, 0 ) == 1 
   end
@@ -52,7 +62,9 @@ class TTT
         return index + 1 if mark != @state[index]
       end
     end
+    return false
   end
+
 
   def make_move!
     @state = next_state
