@@ -44,7 +44,7 @@ ttt = TTT.new(state: game.state, dimension: game.dimension)
           self.computer_position = ttt.next_move
 
           else
-          self.computer_position = ttt.state.reverse!
+          ttt.state.reverse!
           self.computer_position = game.dimension * game.dimension + 1 - ttt.next_move if ttt.next_move
 
 
