@@ -28,11 +28,13 @@
   <div class="span4">
   <table>
     <thead>
+      <th>Trial Number</th>
       <th>Condition</th>
       <th>Dimension</th>
     </thead>
-    <% @subject.games.each do | game | %>
+    <% @subject.games.each_with_index do | game, index | %>
       <tr>
+        <td><%= index + 1 %></td>
         <td>
           <%= link_to game.experimental_condition.name, game %>
         </td>
