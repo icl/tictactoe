@@ -1,5 +1,11 @@
 class MovesController < ApplicationController
 
+  def index
+  respond_to do |format|
+    format.csv { render :text => Exporter.dump_csv }
+  end  
+  end
+
   def create
     @move = Move.new(params[:move])
     @move.compute_response!
