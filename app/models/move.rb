@@ -56,9 +56,16 @@ ttt = TTT.new(state: game.state, dimension: game.dimension)
 
   end
 
+  def inter_move_interval
+    move_timestamp.to_i - prompt_timestamp.to_i if !prompt_timestamp.blank?
+
+  end
+
   def is_error?
     is_error
   end
 
-  
+  def expanded_data
+    attributes.values + [ inter_move_interval, game.experimental_condition.name]
+  end 
 end
