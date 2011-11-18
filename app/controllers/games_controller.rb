@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-
+  before_filter :require_login
   def new
     @game = Game.new
   end

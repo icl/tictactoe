@@ -1,5 +1,5 @@
 class MovesController < ApplicationController
-
+  before_filter :require_login
   def index
   respond_to do |format|
     format.csv { render :text => Exporter.dump_csv }
