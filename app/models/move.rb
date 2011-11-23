@@ -1,7 +1,8 @@
 class Move < ActiveRecord::Base
 
   belongs_to :game
-
+  belongs_to :subject
+  delegate :initials, :to => :subject, :allow_nil => true
 #  validates_presence_of :subject_position, :move_timestamp, :game_id, :subject_id
   #validates_presence_of :prompt_timestamp, :board_state
 
@@ -66,6 +67,6 @@ ttt = TTT.new(state: game.state, dimension: game.dimension)
   end
 
   def expanded_data
-    attributes.values + [ inter_move_interval, game.experimental_condition.name, game.dimension]
+    attributes.values + [ initials, inter_move_interval, game.experimental_condition.name, game.dimension]
   end 
 end
