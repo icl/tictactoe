@@ -66,6 +66,6 @@ ttt = TTT.new(state: game.state, dimension: game.dimension)
   end
 
   def expanded_data
-    attributes.values + [ inter_move_interval, game.experimental_condition.name]
+    attributes.values + [ inter_move_interval, game.experimental_condition.name, game.dimension]
   end 
 end
