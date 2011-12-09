@@ -63,10 +63,7 @@ ttt = TTT.new(state: game.state, dimension: game.dimension)
   end
 
   def inter_success_interval
-    if self.is_error
-      return 0
-    else
-      all_moves = game.moves
+       all_moves = game.moves
       puts all_moves.count
       previous_moves = all_moves.reject { | a_move| a_move.id >= self.id }
       puts previous_moves.count
@@ -75,8 +72,7 @@ ttt = TTT.new(state: game.state, dimension: game.dimension)
       puts errors.inspect
       isi =  move_timestamp.to_i - errors.last.prompt_timestamp.to_i if errors.first
       return isi
-    end
-  end
+   end
 
   def is_error?
     is_error
