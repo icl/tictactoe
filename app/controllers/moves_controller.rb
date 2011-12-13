@@ -1,9 +1,9 @@
 class MovesController < ApplicationController
   before_filter :require_login
   def index
-  respond_to do |format|
-    format.csv { render :text => Exporter.dump_csv }
-  end  
+    respond_to do |format|
+      format.csv { render :text => MoveExporter.dump_csv }
+    end  
   end
 
   def create

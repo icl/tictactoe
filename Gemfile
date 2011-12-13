@@ -31,6 +31,7 @@ gem 'bootstrap-form'
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
 group :test do
+  gem 'ruby-debug19'
   # Pretty printed test output
   gem 'turn', :require => false
   gem 'capybara'

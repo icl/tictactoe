@@ -3,6 +3,9 @@ class Move < ActiveRecord::Base
   belongs_to :game
   belongs_to :subject
   delegate :initials, :to => :subject, :allow_nil => true
+  scope :valid, where(:is_error => false)
+  scope :invalid, where(:is_error => true)
+  scope :subject, where("subject_position IS NOT NULL")
 #  validates_presence_of :subject_position, :move_timestamp, :game_id, :subject_id
   #validates_presence_of :prompt_timestamp, :board_state
 
@@ -64,12 +67,8 @@ ttt = TTT.new(state: game.state, dimension: game.dimension)
 
   def inter_success_interval
       all_moves = game.moves
-      puts all_moves.count
       previous_moves = all_moves.reject { | a_move| a_move.id >= self.id }
-      puts previous_moves.count
       errors = previous_moves.reverse.take_while { |a_move| a_move.is_error == true }
-      puts errors.count
-      puts errors.inspect
       isi =  move_timestamp.to_i - errors.last.prompt_timestamp.to_i if errors.first
       return isi || inter_move_interval
    end

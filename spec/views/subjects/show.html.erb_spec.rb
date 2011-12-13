@@ -5,6 +5,7 @@ describe "subjects/show.html.erb" do
     @subject = assign(:subject, stub_model(Subject,
       :initials => "Initials"
     ))
+    @game = Game.new(subject: @subject)
   end
 
   it "renders attributes in <p>" do

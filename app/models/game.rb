@@ -13,9 +13,7 @@ class Game < ActiveRecord::Base
 
   def move_first_if_neccesary
     self.moves.create(  computer_position: (rand(self.dimension() * self.dimension() - 1 ) + 1)
-                     
-                     
-                     
+
                      ) if self.comp_moves_first &&  self.moves.count == 0
 
   end
@@ -29,5 +27,37 @@ class Game < ActiveRecord::Base
       a[move.computer_position - 1 ] = 'O' if !move.is_error? && move.computer_position
     end
     a
+  end
+
+  def total_moves
+    moves.count
+  end
+
+  def total_valid_moves
+    moves.valid.count
+  end
+  
+  def total_invalid_moves
+    moves.invalid.count
+  end
+
+  def mean_inter_move_interval
+    total_imi = 0
+    subject_moves_count = 0
+    moves.each do | move |
+      total_imi += move.inter_move_interval if move.subject_position
+      subject_moves_count += 1 if move.subject_position
+    end
+    return total_imi / subject_moves_count
+  end
+
+  def mean_inter_valid_move_interval
+
+    total_vimi = moves.subject.valid.inject(0) {|sum, move| sum += move.inter_success_interval }
+   return total_vimi / moves.subject.valid.count 
+  end
+
+  def subject_game_number
+    subject.games.index { |game| game.id == self.id } + 1
   end
 end
